@@ -1,6 +1,7 @@
 import logging 
 from jobs_parser import read_json as first_pass
 from jobs_translator import read_json as second_pass
+from processing import read_json as third_pass
 from jobsapi_hook import ArbeitnowHook
 from prefect import flow
 
@@ -12,6 +13,7 @@ def run():
     ArbeitnowHook().get_all()
     first_pass()
     second_pass()
+    third_pass()
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 
 class ArbeitnowHook(BaseHook):
     """
-    Hook into data stream/batch
+    Hook into data stream/batch through Arbeitnow API
     """
 
     def __init__(self) -> None:

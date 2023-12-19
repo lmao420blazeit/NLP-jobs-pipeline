@@ -4,12 +4,15 @@ import pandas as pd
 from deep_translator.exceptions import NotValidLength
 from deep_translator import GoogleTranslator
 from tqdm import tqdm
+from prefect import task
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 from translate import Translator
 
+@task(name="Translate description",
+        description="Translate description to english when language detected != eng")
 def read_json(path = "data_preprocessed_01"):
     if not os.path.exists("data_preprocessed_02"):
         os.makedirs("data_preprocessed_02")
